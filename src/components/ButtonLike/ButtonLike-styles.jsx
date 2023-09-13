@@ -1,21 +1,24 @@
 import { IconButton, styled } from "@mui/material";
 
 export const Button = styled(IconButton)({
-    width: "20px",
-    height: "20px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: "0px",
-    color: "var(--accent-color)",
+  position: "absolute",
+  right: "14px",
+  top: "14px",
 
-    "&:hover": {
-      backgroundColor: "transparent",
-      color: "var(--accent-hover-color)",
-      opacity: 1,
-    },
-  
-  });
+  width: "20px",
+  height: "20px",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  padding: "0px",
+  color: "var(--accent-color)",
+
+  "&:hover": {
+    backgroundColor: "transparent",
+    color: "var(--accent-hover-color)",
+    opacity: 1,
+  },
+});
 
 export const ButtonIcon = styled("svg")(({ isLiked }) => ({
   width: "18px",

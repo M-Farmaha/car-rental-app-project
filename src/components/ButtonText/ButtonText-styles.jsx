@@ -2,6 +2,7 @@ import { Button, styled } from "@mui/material";
 
 export const ButtonWrap = styled(Button)({
   height: "44px",
+  width: "100%",
 
   display: "flex",
   justifyContent: "center",
