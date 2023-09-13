@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+
 import { ButtonLike } from "../ButtonLike/ButtonLike";
 import { ButtonText } from "../ButtonText/ButtonText";
 import {
@@ -28,10 +28,6 @@ export const CarCard = ({ car }) => {
   const country = address.split(",")[2];
   const city = address.split(",")[1];
   const firstFunctionality = functionalities[0];
-
-  useEffect(() => {
-    console.log(car);
-  }, [car]);
 
   return (
     <>

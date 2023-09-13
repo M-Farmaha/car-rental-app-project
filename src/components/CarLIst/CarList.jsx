@@ -6,8 +6,6 @@ import { CarListWrap } from "./CarList-styles";
 export const CarList = () => {
   const [carArray, setCarArray] = useState([]);
 
-  console.log(carArray);
-
   useEffect(() => {
     (async () => {
       const response = await ApiRequest("catalog");
