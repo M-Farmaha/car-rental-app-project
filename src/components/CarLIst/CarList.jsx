@@ -1,25 +1,50 @@
 import { useEffect, useState } from "react";
 import { CarCard } from "../CarCard/CarCard";
 import { ApiRequest } from "../../ApiRequest";
-import { CarListWrap } from "./CarList-styles";
+import { CarListWrap, LoadMoreButton } from "./CarList-styles";
+import { FilterBar } from "../FilterBar/FilterBar";
 
 export const CarList = () => {
-  const [carArray, setCarArray] = useState([]);
+  const [carsArray, setCarsArray] = useState([]);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     (async () => {
-      const response = await ApiRequest("catalog");
-      if (response) setCarArray(response);
+      const { data } = await ApiRequest("catalog", page);
+
+      if (page === 1) setCarsArray(data);
+      if (page > 1) setCarsArray((prev) => [...prev, ...data]);
     })();
-  }, []);
+  }, [page]);
+
+  useEffect(() => {
+    if (carsArray.length <= 8) return;
+    window.scrollBy({
+      top: 777,
+      behavior: "smooth",
+    });
+  }, [carsArray]);
+
+  const handleLoadMoreClick = () => {
+    setPage((prev) => prev + 1);
+  };
 
   return (
-    <CarListWrap>
-      {carArray.map((car) => (
-        <li key={car.id}>
-          <CarCard car={car} />
-        </li>
-      ))}
-    </CarListWrap>
+    <>
+    <FilterBar/>
+      {carsArray.length > 0 && <CarListWrap sx={{ mb: 12.5 }}>
+        {carsArray.map((car) => (
+          <li key={car.id}>
+            <CarCard car={car} />
+          </li>
+        ))}
+      </CarListWrap>}
+
+      {carsArray.length > 0 && carsArray.length < 40 && (
+        <LoadMoreButton type="button" onClick={handleLoadMoreClick}>
+          Load more
+        </LoadMoreButton>
+      )}
+    </>
   );
 };

@@ -13,7 +13,7 @@
 
   --primary-grey-color: #8A8A89;
   --alternative-grey-corol: rgb(18, 20, 23);
-  --secondary-grey-color: #F9F9F9;
+  --secondary-grey-color: #F7F7FB;
 }
 
 
@@ -69,7 +69,7 @@ button {
 }
 
 input {
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
   box-shadow: none;
   -webkit-box-shadow: none;
   -webkit-border-radius: 0px;

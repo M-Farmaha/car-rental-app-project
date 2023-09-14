@@ -1,4 +1,3 @@
-
 import { ButtonLike } from "../ButtonLike/ButtonLike";
 import { ButtonText } from "../ButtonText/ButtonText";
 import {
@@ -62,7 +61,7 @@ export const CarCard = ({ car }) => {
           </TagsText>
         </TagsWrap>
 
-        <ButtonText text={"Learn more"} />
+        <ButtonText text={"Learn more"} type={"button"} />
       </CardWrap>
     </>
   );

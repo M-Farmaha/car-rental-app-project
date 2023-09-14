@@ -59,7 +59,7 @@ export const TagsWrap = styled("div")({
   width: "100%",
   height: "40px",
   display: "flex",
-  justifyContent: "center",
+  justifyContent: "left",
   alignItems: "center",
 });
 
