@@ -22,6 +22,19 @@ export const FilterBar = () => {
   const [isBrandOpen, setIsBrandOpen] = useState(false);
   const [isPriceOpen, setIsPriceOpen] = useState(false);
 
+  const handleMileageChange = (e) => {
+    console.log(e.target);
+    const { value, name } = e.target;
+    if (value.length > 7) return;
+    let formattedValue = value.replace(/\D/g, "");
+    if (formattedValue.length > 3) {
+      formattedValue =
+        formattedValue.slice(0, -3) + "," + formattedValue.slice(-3);
+    }
+    if (name === "minMileage") setMinMileage(formattedValue);
+    if (name === "maxMileage") setMaxMileage(formattedValue);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({ brand, price, minMileage, maxMileage });
@@ -226,15 +239,10 @@ export const FilterBar = () => {
                 paddingRight: "10px",
               }}
               value={minMileage}
-              onChange={(e) => {
-                if (e.target.value.length > 6) return;
-                setMinMileage(e.target.value);
-              }}
-              type="number"
+              onChange={(e) => handleMileageChange(e)}
+              type="string"
               name="minMileage"
               min="0"
-              max="999999"
-              title="Max mileage is 999 999"
             />
           </div>
 
@@ -250,14 +258,10 @@ export const FilterBar = () => {
                 paddingRight: "10px",
               }}
               value={maxMileage}
-              onChange={(e) => {
-                if (e.target.value.length > 6) return;
-                setMaxMileage(e.target.value);
-              }}
-              type="number"
+              onChange={(e) => handleMileageChange(e)}
+              type="string"
               name="maxMileage"
               min="0"
-              max="999999"
             />
           </div>
         </InputRangeWrap>
