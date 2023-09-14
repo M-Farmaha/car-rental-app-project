@@ -4,6 +4,7 @@ import {
   InputRangeWrap,
   InputWrap,
   Label,
+  LabelMileage,
 } from "./FilterBar-styled";
 
 import Select from "react-select";
@@ -15,30 +16,18 @@ import { useState } from "react";
 export const FilterBar = () => {
   const [brand, setBrand] = useState("");
   const [price, setPrice] = useState("");
+  const [minMileage, setMinMileage] = useState("");
+  const [maxMileage, setMaxMileage] = useState("");
+
   const [isBrandOpen, setIsBrandOpen] = useState(false);
+  const [isPriceOpen, setIsPriceOpen] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log({ brand, price, minMileage, maxMileage });
   };
 
   const selectStyles = {
-    dropdownIndicator: (styles) => ({
-      ...styles,
-      color: "var(--primary-black-color)",
-      transform: isBrandOpen ? "rotate(180deg)" : "rotate(0deg)",
-    }),
-
-    input: (styles) => ({
-      ...styles,
-      fontFamily: "Manrope",
-      fontSize: "18px",
-      fontStyle: "normal",
-      fontWeight: 500,
-      lineHeight: "20px",
-      cursor: "pointer",
-      color: "var(--primary-black-color)",
-    }),
-
     placeholder: (styles) => ({
       ...styles,
       fontFamily: "Manrope",
@@ -50,6 +39,35 @@ export const FilterBar = () => {
       color: "var(--primary-black-color)",
     }),
 
+    input: (styles) => ({
+      ...styles,
+      padding: "0px",
+      margin: "0px",
+      height: "48px",
+    }),
+
+    singleValue: (styles) => ({
+      ...styles,
+      padding: "0px",
+      margin: "0px",
+      height: "48px",
+
+      display: "flex",
+      justifyContent: "left",
+      alignItems: "center",
+    }),
+
+    valueContainer: (styles) => ({
+      ...styles,
+      paddingLeft: "18px",
+      padding: "0px",
+      margin: "0px",
+      height: "48px",
+      display: "flex",
+      justifyContent: "left",
+      alignItems: "center",
+    }),
+
     container: (styles) => ({
       ...styles,
       fontFamily: "Manrope",
@@ -58,19 +76,28 @@ export const FilterBar = () => {
       fontWeight: 500,
       lineHeight: "20px",
       color: "var(--primary-black-color)",
+
+      display: "flex",
+      justifyContent: "left",
+      alignItems: "center",
+    }),
+
+    indicatorsContainer: (styles) => ({
+      paddingRight: "18px",
     }),
 
     control: (styles) => ({
       ...styles,
       border: "none",
-      borderWidth: 0,
+      outline: "none",
+      boxShadow: "none",
+
       height: "48px",
-      width: "224px",
-      borderColor: "transparent",
+      width: "100%",
+
       borderRadius: "14px",
       backgroundColor: "var(--secondary-grey-color)",
       cursor: "pointer",
-      padding: "0px 8px",
     }),
 
     menu: (baseStyles) => ({
@@ -100,12 +127,12 @@ export const FilterBar = () => {
       ...base,
       "::-webkit-scrollbar": {
         width: "24px",
-        height: "130px",
       },
       "::-webkit-scrollbar-track": {
         background: "transparent",
       },
       "::-webkit-scrollbar-thumb": {
+        height: "66px",
         background: "rgba(18, 20, 23, 0.1);",
         borderRadius: "9999px",
         border: "8px solid rgba(0, 0, 0, 0)",
@@ -130,7 +157,15 @@ export const FilterBar = () => {
           components={{
             IndicatorSeparator: () => null,
           }}
-          styles={selectStyles}
+          styles={{
+            ...selectStyles,
+            dropdownIndicator: (styles) => ({
+              ...styles,
+              padding: "0px",
+              color: "var(--primary-black-color)",
+              transform: isBrandOpen ? "rotate(180deg)" : "rotate(0deg)",
+            }),
+          }}
           name="brand"
           value={brand}
           onMenuOpen={() => setIsBrandOpen(true)}
@@ -146,9 +181,29 @@ export const FilterBar = () => {
       <InputWrap sx={{ width: "125px" }}>
         <Label htmlFor="price">Price/ 1 hour</Label>
         <Select
+          placeholder={"To $"}
+          maxMenuHeight={188}
+          components={{
+            IndicatorSeparator: () => null,
+          }}
+          styles={{
+            ...selectStyles,
+            dropdownIndicator: (styles) => ({
+              ...styles,
+              padding: "0px",
+              color: "var(--primary-black-color)",
+              transform: isPriceOpen ? "rotate(180deg)" : "rotate(0deg)",
+            }),
+          }}
           name="price"
           value={price}
-          onChange={(selectedOption) => setPrice(selectedOption)}
+          onMenuOpen={() => setIsPriceOpen(true)}
+          onMenuClose={() => setIsPriceOpen(false)}
+          onChange={(selectedOption) => {
+            const newLabel = `To ${selectedOption.label}$`;
+            const newOptions = { value: selectedOption.value, label: newLabel };
+            setPrice(newOptions);
+          }}
           options={PriceSelectArray.map((price) => ({
             value: price,
             label: price,
@@ -159,8 +214,52 @@ export const FilterBar = () => {
       <InputWrap>
         <Label htmlFor="carMileage">Сar mileage / km</Label>
         <InputRangeWrap>
-          <Input type="number" name="minMileage" min="0" />
-          <Input type="number" name="maxMileage" min="0" />
+          <div style={{ position: "relative" }}>
+            <LabelMileage htmlFor="minMileage">From</LabelMileage>
+            <Input
+              sx={{
+                borderTopRightRadius: "0px",
+                borderBottomRightRadius: "0px",
+                borderRight: "1px solid rgba(138, 138, 137, 0.20)",
+                width: "75px",
+                paddingLeft: "75px",
+                paddingRight: "10px",
+              }}
+              value={minMileage}
+              onChange={(e) => {
+                if (e.target.value.length > 6) return;
+                setMinMileage(e.target.value);
+              }}
+              type="number"
+              name="minMileage"
+              min="0"
+              max="999999"
+              title="Max mileage is 999 999"
+            />
+          </div>
+
+          <div style={{ position: "relative" }}>
+            <LabelMileage htmlFor="maxMileage">To</LabelMileage>
+            <Input
+              sx={{
+                borderTopLeftRadius: "0px",
+                borderBottomLeftRadius: "0px",
+                borderLeft: "1px solid rgba(138, 138, 137, 0.20)",
+                width: "100px",
+                paddingLeft: "50px",
+                paddingRight: "10px",
+              }}
+              value={maxMileage}
+              onChange={(e) => {
+                if (e.target.value.length > 6) return;
+                setMaxMileage(e.target.value);
+              }}
+              type="number"
+              name="maxMileage"
+              min="0"
+              max="999999"
+            />
+          </div>
         </InputRangeWrap>
       </InputWrap>
 

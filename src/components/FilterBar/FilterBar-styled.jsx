@@ -28,10 +28,20 @@ export const InputRangeWrap = styled("div")({
 
 export const Input = styled("input")({
   height: "28px",
-  padding: "10px 18px",
+
+  paddingTop: "10px",
+  paddingBottom: "10px",
+
   border: "none",
+  outline: "none",
   borderRadius: "14px",
   backgroundColor: "var(--secondary-grey-color)",
+  fontFamily: "Manrope",
+  fontSize: "18px",
+  fontStyle: "normal",
+  fontWeight: 500,
+  lineHeight: "20px",
+  color: "var(--primary-black-color)",
 });
 
 export const Label = styled("label")({
@@ -41,4 +51,19 @@ export const Label = styled("label")({
   fontStyle: "normal",
   fontWeight: 500,
   lineHeight: "18px", // 128.571%
+});
+
+export const LabelMileage = styled("label")({
+  position: "absolute",
+  zIndex: "999",
+  left: "24px",
+  top: "14px",
+  fontFamily: "Manrope",
+  fontSize: "18px",
+  fontStyle: "normal",
+  fontWeight: 500,
+  lineHeight: "20px",
+  color: "var(--primary-black-color)",
+
+  pointerEvents: "none",
 });
