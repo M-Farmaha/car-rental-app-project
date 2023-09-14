@@ -23,7 +23,6 @@ export const FilterBar = () => {
   const [isPriceOpen, setIsPriceOpen] = useState(false);
 
   const handleMileageChange = (e) => {
-    console.log(e.target);
     const { value, name } = e.target;
     if (value.length > 7) return;
     let formattedValue = value.replace(/\D/g, "");
@@ -161,7 +160,7 @@ export const FilterBar = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} autoComplete="off">
       <InputWrap sx={{ width: "224px" }}>
         <Label htmlFor="brand">Car brand</Label>
         <Select

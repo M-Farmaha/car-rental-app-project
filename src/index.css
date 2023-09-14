@@ -77,9 +77,23 @@ input {
   border-radius: 0px;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: var(--primary-black-color);
+  box-shadow: inset 0 0 20px 20px var(--secondary-grey-color);
+  font-family: 'Manrope', sans-serif;
+}
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none; /* Заховати кнопки у Chrome та Safari */
-  appearance: none; /* Заховати кнопки у інших браузерах */
-  display: none; /* Приховати кнопки */
+  -webkit-appearance: none;
+  /* Заховати кнопки у Chrome та Safari */
+  appearance: none;
+  /* Заховати кнопки у інших браузерах */
+  display: none;
+  /* Приховати кнопки */
 }

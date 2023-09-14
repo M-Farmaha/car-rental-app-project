@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { CarCard } from "../CarCard/CarCard";
+import { FilterBar } from "../../components/FilterBar/FilterBar";
+import { CarCard } from "../../components/CarCard/CarCard";
+import { CarListWrap, LoadMoreButton, Section } from "./CatalogPage.-styles";
 import { ApiRequest } from "../../ApiRequest";
-import { CarListWrap, LoadMoreButton } from "./CarList-styles";
-import { FilterBar } from "../FilterBar/FilterBar";
 
-export const CarList = () => {
+export const CatalogPage = () => {
   const [carsArray, setCarsArray] = useState([]);
   const [page, setPage] = useState(1);
 
@@ -20,7 +20,7 @@ export const CarList = () => {
   useEffect(() => {
     if (carsArray.length <= 8) return;
     window.scrollBy({
-      top: 777,
+      top: 700,
       behavior: "smooth",
     });
   }, [carsArray]);
@@ -30,21 +30,24 @@ export const CarList = () => {
   };
 
   return (
-    <>
-    <FilterBar/>
-      {carsArray.length > 0 && <CarListWrap sx={{ mb: 12.5 }}>
-        {carsArray.map((car) => (
-          <li key={car.id}>
-            <CarCard car={car} />
-          </li>
-        ))}
-      </CarListWrap>}
+    <Section>
+      <FilterBar />
+
+      {carsArray.length > 0 && (
+        <CarListWrap sx={{ mb: 12.5 }}>
+          {carsArray.map((car) => (
+            <li key={car.id}>
+              <CarCard car={car} />
+            </li>
+          ))}
+        </CarListWrap>
+      )}
 
       {carsArray.length > 0 && carsArray.length < 40 && (
         <LoadMoreButton type="button" onClick={handleLoadMoreClick}>
           Load more
         </LoadMoreButton>
       )}
-    </>
+    </Section>
   );
 };

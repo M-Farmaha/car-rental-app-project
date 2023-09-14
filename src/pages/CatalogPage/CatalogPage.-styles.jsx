@@ -1,5 +1,10 @@
 import { styled } from "@mui/material/styles";
 
+export const Section = styled("section")({
+  paddingTop: "150px",
+  paddingBottom: "150px",
+});
+
 export const CarListWrap = styled("ul")({
   width: "1184px",
   marginLeft: "auto",

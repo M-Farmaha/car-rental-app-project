@@ -13,6 +13,7 @@ import {
 
 export const CarCard = ({ car }) => {
   const {
+    id,
     make,
     model,
     year,
@@ -21,7 +22,6 @@ export const CarCard = ({ car }) => {
     address,
     rentalCompany,
     type,
-    mileage,
     functionalities,
   } = car;
   const country = address.split(",")[2];
@@ -55,7 +55,7 @@ export const CarCard = ({ car }) => {
             <Divider />
             {model}
             <Divider />
-            {mileage}
+            {id}
             <Divider />
             {firstFunctionality}
           </TagsText>

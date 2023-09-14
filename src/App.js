@@ -1,9 +1,10 @@
-import { CarList } from "./components/CarLIst/CarList";
+import { CatalogPage } from "./pages/CatalogPage/CatalogPage";
+
 
 function App() {
   return (
     <>
-      <CarList />
+      <CatalogPage />
     </>
   );
 }
