@@ -5,14 +5,19 @@ export const Section = styled("section")({
   paddingBottom: "150px",
 });
 
-export const CarListWrap = styled("ul")({
-  width: "1184px",
+export const CarListWrap = styled("div")({
   marginLeft: "auto",
   marginRight: "auto",
+  width: "1200px",
+  paddingLeft: "8px",
+  paddingRight: "8px",
+});
+
+export const CarList = styled("ul")({
   display: "flex",
   flexDirection: "row",
   flexWrap: "wrap",
-  justifyContent: "center",
+
   alignItems: "center",
   columnGap: "29px",
   rowGap: "50px ",
@@ -34,9 +39,11 @@ export const LoadMoreButton = styled("button")({
   fontSize: "16px",
   fontStyle: "normal",
   fontWeight: 500,
-  lineHeight: "24px" /* 150% */,
+  lineHeight: "24px",
   textDecorationLine: "underline",
   cursor: "pointer",
+
+  transition: "var(--main-transition)",
 
   "&:hover": {
     color: "var(--accent-hover-color)",

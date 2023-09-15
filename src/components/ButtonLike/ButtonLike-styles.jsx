@@ -13,7 +13,10 @@ export const Button = styled(IconButton)({
   padding: "0px",
   color: "var(--accent-color)",
 
+  transition: "var(--main-transition)",
+
   "&:hover": {
+    transform: "scale(1.4)",
     backgroundColor: "transparent",
     color: "var(--accent-hover-color)",
     opacity: 1,

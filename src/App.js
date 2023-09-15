@@ -5,7 +5,9 @@ function App() {
   return (
     <>
       <AppBar />
-      <CatalogPage />
+      <main>
+        <CatalogPage />
+      </main>
     </>
   );
 }

@@ -2,14 +2,18 @@ import { styled } from "@mui/material/styles";
 
 export const Form = styled("form")({
   marginBottom: "50px",
+
   marginLeft: "auto",
   marginRight: "auto",
-  width: "859px",
+  paddingLeft: "8px",
+  paddingRight: "8px",
+
+  width: "1200px",
   height: "74px",
 
   display: "flex",
   flexDirection: "row",
-  justifyContent: "space-between",
+  justifyContent: "center",
   alignItems: "flex-end",
   gap: "18px",
 });
@@ -27,7 +31,8 @@ export const InputRangeWrap = styled("div")({
 });
 
 export const Input = styled("input")({
-  height: "28px",
+  height: "48px",
+  width: "160px",
 
   paddingTop: "10px",
   paddingBottom: "10px",
@@ -50,7 +55,7 @@ export const Label = styled("label")({
   fontSize: "14px",
   fontStyle: "normal",
   fontWeight: 500,
-  lineHeight: "18px", // 128.571%
+  lineHeight: "18px",
 });
 
 export const LabelMileage = styled("label")({

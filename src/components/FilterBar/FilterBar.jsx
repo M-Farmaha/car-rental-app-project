@@ -95,6 +95,7 @@ export const FilterBar = () => {
     }),
 
     indicatorsContainer: (styles) => ({
+      ...styles,
       paddingRight: "18px",
     }),
 
@@ -233,7 +234,6 @@ export const FilterBar = () => {
                 borderTopRightRadius: "0px",
                 borderBottomRightRadius: "0px",
                 borderRight: "1px solid rgba(138, 138, 137, 0.20)",
-                width: "75px",
                 paddingLeft: "75px",
                 paddingRight: "10px",
               }}
@@ -252,7 +252,6 @@ export const FilterBar = () => {
                 borderTopLeftRadius: "0px",
                 borderBottomLeftRadius: "0px",
                 borderLeft: "1px solid rgba(138, 138, 137, 0.20)",
-                width: "100px",
                 paddingLeft: "50px",
                 paddingRight: "10px",
               }}

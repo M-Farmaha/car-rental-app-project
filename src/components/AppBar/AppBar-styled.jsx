@@ -1,74 +1,73 @@
 import { styled } from "@mui/material/styles";
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 export const Header = styled("header")({
   height: "80px",
+  position: 'sticky',
   top: 0,
   left: 0,
-  position: "sticky",
+  right: 0,
   zIndex: 9999,
-  backgroundColor: "var(--secondary-grey-color)",
-
+  backgroundColor: "rgba(255, 255, 255, 0.6)",
+  backdropFilter: "blur(10px)",
+  boxShadow: "rgba(0, 0, 0, 0.05) 0px 2px 15px 0px",
   transition: "var(--main-transition)",
 });
 
 export const NavWrap = styled("nav")({
   marginLeft: "auto",
   marginRight: "auto",
-  maxWidth: "440px",
+  paddingLeft: "8px",
+  paddingRight: "8px",
+
+  width: "1200px",
   height: "100%",
-  padding: "0px 20px",
+
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  gap: "10px",
+  gap: "20px",
 });
 
 export const NavList = styled("ul")({
-  height: "80%",
+  height: "100%",
   display: "flex",
-  flexDirection: "column",
+  gap: "20px",
   justifyContent: "center",
   alignItems: "center",
 });
 
 export const NavItem = styled("li")({
   height: "100%",
-  minWidth: "66px",
 });
 
 export const NavLinkStyled = styled(NavLink)({
   fontFamily: "Manrope",
-  fontSize: "18px",
+  fontSize: "20px",
   fontStyle: "normal",
   fontWeight: 500,
   lineHeight: "24px",
 
   height: "100%",
   display: "flex",
-  justifyContent: "right",
+  justifyContent: "center",
   alignItems: "center",
-  color: "var( --primary-grey-color)",
+  color: "var(--primary-black-color)",
   textDecoration: "none",
 
   transition: "var(--main-transition)",
-  '&:hover': {
-    color: "var(--primary-black-color)",
+  "&:hover": {
+    color: "var(--accent-color)",
   },
-  '&.active': {
-    color: "var(--primary-black-color)",
+  "&.active": {
+    color: "var(--accent-color)",
     cursor: "default",
   },
 });
 
-export const TitleWrap = styled("div")({
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-});
+export const Logo = styled("h1")({
+  minWidth: "120px",
 
-export const PhonebookTitle = styled("h1")({
   fontFamily: "Manrope",
   fontSize: "24px",
   fontStyle: "normal",

@@ -1,5 +1,7 @@
+
 import { ButtonLike } from "../ButtonLike/ButtonLike";
 import { ButtonText } from "../ButtonText/ButtonText";
+import { ModalLearnMore } from "../ModalLearnMore/ModalLearnMore";
 import {
   CarPrice,
   CarTitle,
@@ -10,6 +12,7 @@ import {
   Divider,
   TagsWrap,
 } from "./CarCard.styles";
+import { useState } from "react";
 
 export const CarCard = ({ car }) => {
   const {
@@ -27,6 +30,8 @@ export const CarCard = ({ car }) => {
   const country = address.split(",")[2];
   const city = address.split(",")[1];
   const firstFunctionality = functionalities[0];
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
@@ -61,8 +66,14 @@ export const CarCard = ({ car }) => {
           </TagsText>
         </TagsWrap>
 
-        <ButtonText text={"Learn more"} type={"button"} />
+        <ButtonText
+          text={"Learn more"}
+          type={"button"}
+          onClick={() => setIsModalOpen(true)}
+        />
       </CardWrap>
+
+      <ModalLearnMore open={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 };

@@ -1,30 +1,32 @@
 // import { ThemeSwitcher } from "./ThemeSwitcher/ThemeSwitcher";
 
-import { Header, NavItem, NavLinkStyled, NavList, NavWrap, PhonebookTitle, TitleWrap } from "./AppBar-styled";
+import {
+  NavItem,
+  NavLinkStyled,
+  NavList,
+  NavWrap,
+  Logo,
+  Header,
+} from "./AppBar-styled";
 
 export const AppBar = () => {
   return (
-    <Header>
-      <NavWrap>
-        <TitleWrap>
-          <PhonebookTitle>Car Rental</PhonebookTitle>
-        </TitleWrap>
-        {/* <ThemeSwitcher /> */}
-        <NavList>
-          <NavItem>
-            <NavLinkStyled to="/catalog" style={{ justifyContent: "right" }}>
-              Catalog
-            </NavLinkStyled>
-          </NavItem>
+    <>
+      <Header>
+        <NavWrap>
+          <Logo>Car Rental</Logo>
+          {/* <ThemeSwitcher /> */}
+          <NavList>
+            <NavItem>
+              <NavLinkStyled to="/catalog">Catalog</NavLinkStyled>
+            </NavItem>
 
-          <NavItem>
-            <NavLinkStyled to="/favorites" style={{ justifyContent: "right" }}>
-            Favorites
-            </NavLinkStyled>
-          </NavItem>
-
-        </NavList>
-      </NavWrap>
-    </Header>
+            <NavItem>
+              <NavLinkStyled to="/favorites">Favorites</NavLinkStyled>
+            </NavItem>
+          </NavList>
+        </NavWrap>
+      </Header>
+    </>
   );
 };

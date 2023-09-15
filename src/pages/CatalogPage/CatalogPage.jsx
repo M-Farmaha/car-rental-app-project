@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import { FilterBar } from "../../components/FilterBar/FilterBar";
 import { CarCard } from "../../components/CarCard/CarCard";
-import { CarListWrap, LoadMoreButton, Section } from "./CatalogPage.-styles";
+import {
+  CarList,
+  CarListWrap,
+  LoadMoreButton,
+  Section,
+} from "./CatalogPage-styles";
 import { ApiRequest } from "../../ApiRequest";
 
 export const CatalogPage = () => {
@@ -30,24 +35,28 @@ export const CatalogPage = () => {
   };
 
   return (
-    <Section>
-      <FilterBar />
+    <>
+      <Section>
+        <FilterBar />
 
-      {carsArray.length > 0 && (
-        <CarListWrap sx={{ mb: 12.5 }}>
-          {carsArray.map((car) => (
-            <li key={car.id}>
-              <CarCard car={car} />
-            </li>
-          ))}
-        </CarListWrap>
-      )}
+        {carsArray.length > 0 && (
+          <CarListWrap>
+            <CarList sx={{ mb: 12.5 }}>
+              {carsArray.map((car) => (
+                <li key={car.id}>
+                  <CarCard car={car} />
+                </li>
+              ))}
+            </CarList>
+          </CarListWrap>
+        )}
 
-      {carsArray.length > 0 && carsArray.length < 40 && (
-        <LoadMoreButton type="button" onClick={handleLoadMoreClick}>
-          Load more
-        </LoadMoreButton>
-      )}
-    </Section>
+        {carsArray.length > 0 && carsArray.length < 40 && (
+          <LoadMoreButton type="button" onClick={handleLoadMoreClick}>
+            Load more
+          </LoadMoreButton>
+        )}
+      </Section>
+    </>
   );
 };
