@@ -1,7 +1,7 @@
 import { styled } from "@mui/material/styles";
 
 export const Section = styled("section")({
-  paddingTop: "70px",
+  paddingTop: "150px",
   paddingBottom: "150px",
 });
 

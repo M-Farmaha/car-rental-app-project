@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export const Header = styled("header")({
   height: "80px",
-  position: 'sticky',
+  position: 'fixed',
   top: 0,
   left: 0,
   right: 0,
@@ -75,5 +75,4 @@ export const Logo = styled("h1")({
   fontWeight: 600,
   lineHeight: "24px",
   color: "var(--primary-black-color)",
-  transition: "var(--main-transition)",
 });

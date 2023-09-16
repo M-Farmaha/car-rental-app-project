@@ -14,9 +14,9 @@ import {
   ConditionsList,
   ConditionItem,
   ConditionText,
+  PhoneNumberLink,
 } from "./ModalLearnMore-styles";
 import sprite from "../../sprite.svg";
-import { ButtonText } from "../ButtonText/ButtonText";
 
 export const ModalLearnMore = ({ open, onClose, car }) => {
   const {
@@ -138,9 +138,7 @@ export const ModalLearnMore = ({ open, onClose, car }) => {
             ))}
           </ConditionsList>
 
-          <ButtonText type={"button"} sx={{ width: "168px", height: "44px" }}>
-            Rental car
-          </ButtonText>
+          <PhoneNumberLink href="tel:+380730000000">Rental car</PhoneNumberLink>
         </Box>
       </ModalWrap>
     </Modal>

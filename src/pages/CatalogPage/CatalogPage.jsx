@@ -42,7 +42,7 @@ export const CatalogPage = () => {
   useEffect(() => {
     if (carsArray.length <= 8) return;
     window.scrollBy({
-      top: 700,
+      top: 400,
       behavior: "smooth",
     });
   }, [carsArray]);
