@@ -265,11 +265,9 @@ export const FilterBar = () => {
         </InputRangeWrap>
       </InputWrap>
 
-      <ButtonText
-        type={"submit"}
-        text={"Search"}
-        sx={{ width: "136px", height: "48px" }}
-      />
+      <ButtonText type={"submit"} sx={{ width: "136px", height: "48px" }}>
+        Search
+      </ButtonText>
     </Form>
   );
 };

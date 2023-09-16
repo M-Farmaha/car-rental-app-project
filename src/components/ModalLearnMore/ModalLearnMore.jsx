@@ -42,7 +42,7 @@ export const ModalLearnMore = ({ open, onClose, car }) => {
 
   const conditionsArray = [
     ...rentalConditions.split("\n"),
-    `Mileage: ${mileage}`,
+    `Mileage: ${mileage.toLocaleString("en-US")}`,
     `Price: ${rentalPrice}`,
   ];
 
@@ -138,11 +138,9 @@ export const ModalLearnMore = ({ open, onClose, car }) => {
             ))}
           </ConditionsList>
 
-          <ButtonText
-            type={"button"}
-            text={"Rental car"}
-            sx={{ width: "168px", height: "44px" }}
-          />
+          <ButtonText type={"button"} sx={{ width: "168px", height: "44px" }}>
+            Rental car
+          </ButtonText>
         </Box>
       </ModalWrap>
     </Modal>

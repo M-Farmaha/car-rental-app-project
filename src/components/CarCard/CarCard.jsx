@@ -14,7 +14,6 @@ import {
 import { useState } from "react";
 
 export const CarCard = ({ car, mockapiId }) => {
-
   const {
     id,
     make,
@@ -37,7 +36,7 @@ export const CarCard = ({ car, mockapiId }) => {
     <>
       <CardWrap>
         <ImageWrap sx={{ mb: 1.75 }}>
-          <ButtonLike id={id} mockapiId={mockapiId}/>
+          <ButtonLike id={id} mockapiId={mockapiId} />
           <img src={img} alt={make} />
         </ImageWrap>
 
@@ -66,11 +65,9 @@ export const CarCard = ({ car, mockapiId }) => {
           </TagsText>
         </TagsWrap>
 
-        <ButtonText
-          text={"Learn more"}
-          type={"button"}
-          onClick={() => setIsModalOpen(true)}
-        />
+        <ButtonText type={"button"} onClick={() => setIsModalOpen(true)}>
+          Learn more
+        </ButtonText>
       </CardWrap>
 
       <ModalLearnMore
