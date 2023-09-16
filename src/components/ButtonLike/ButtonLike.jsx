@@ -1,12 +1,25 @@
 import { useState } from "react";
 import sprite from "../../sprite.svg";
 import { Button, ButtonIcon } from "./ButtonLike-styles";
+import { AddToFavorites, removeFromFavorites } from "../../ApiRequest";
 
-export const ButtonLike = () => {
-  const [isLiked, setIsLiked] = useState(false);
+export const ButtonLike = ({ id, mockapiId }) => {
+  const [isLiked, setIsLiked] = useState(mockapiId !== null);
+  const [newMockapiId, setNewMockapiId] = useState(mockapiId);
 
-  const handleButtonLikeClick = () => {
-    setIsLiked(!isLiked);
+  const handleButtonLikeClick = async () => {
+    try {
+      if (isLiked) {
+        await removeFromFavorites(newMockapiId);
+        setNewMockapiId(null);
+      } else {
+        const { data } = await AddToFavorites(id);
+        setNewMockapiId(data.mockapiId);
+      }
+      setIsLiked(!isLiked);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

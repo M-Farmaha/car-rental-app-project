@@ -31,8 +31,13 @@ body {
       width: 0;
       height: 0;
   }
+}
 
-
+div {
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
 }
 
 html {

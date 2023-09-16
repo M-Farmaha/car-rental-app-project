@@ -1,4 +1,3 @@
-
 import { ButtonLike } from "../ButtonLike/ButtonLike";
 import { ButtonText } from "../ButtonText/ButtonText";
 import { ModalLearnMore } from "../ModalLearnMore/ModalLearnMore";
@@ -14,7 +13,8 @@ import {
 } from "./CarCard.styles";
 import { useState } from "react";
 
-export const CarCard = ({ car }) => {
+export const CarCard = ({ car, mockapiId }) => {
+
   const {
     id,
     make,
@@ -37,7 +37,7 @@ export const CarCard = ({ car }) => {
     <>
       <CardWrap>
         <ImageWrap sx={{ mb: 1.75 }}>
-          <ButtonLike />
+          <ButtonLike id={id} mockapiId={mockapiId}/>
           <img src={img} alt={make} />
         </ImageWrap>
 
@@ -73,7 +73,11 @@ export const CarCard = ({ car }) => {
         />
       </CardWrap>
 
-      <ModalLearnMore open={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <ModalLearnMore
+        open={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        car={car}
+      />
     </>
   );
 };
