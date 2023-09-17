@@ -1,6 +1,6 @@
 # Сar Rental App
 
-![Сar Rental Logo](./public/logo512.png)
+![Сar Rental Logo](./public/logo192.png)
 
 Welcome to the Сar Rental Application repository! This app provides a convenient platform for renting cars in Ukraine. With a user-friendly interface and a wide range of vehicle options, it's easier than ever to find the perfect ride for your journey.
 
@@ -20,7 +20,7 @@ Follow these steps to get started with the Сar Rental App:
 
 1. **Clone the Repository:**
 
-git clone https://github.com/your-username/car-rental-app.git
+git clone https://github.com/M-Farmaha/car-rental-app-project
 
 2. **Install Dependencies:**
 
