@@ -13,7 +13,7 @@ import { ButtonText } from "../ButtonText/ButtonText";
 import { BrandSelectArray, PriceSelectArray } from "./SelectArrays";
 import { useState } from "react";
 
-export const FilterBar = () => {
+export const FilterBar = ({ setFilterParams, setPage }) => {
   const [brand, setBrand] = useState("");
   const [price, setPrice] = useState("");
   const [minMileage, setMinMileage] = useState("");
@@ -25,18 +25,23 @@ export const FilterBar = () => {
   const handleMileageChange = (e) => {
     const { value, name } = e.target;
     if (value.length > 7) return;
-    let formattedValue = value.replace(/\D/g, "");
-    if (formattedValue.length > 3) {
-      formattedValue =
-        formattedValue.slice(0, -3) + "," + formattedValue.slice(-3);
+
+    const formattedValue = value.replace(/\D/g, "");
+    const numericValue = parseInt(formattedValue, 10);
+
+    if (!isNaN(numericValue)) {
+      if (name === "minMileage") setMinMileage(numericValue);
+      if (name === "maxMileage") setMaxMileage(numericValue);
+    } else {
+      if (name === "minMileage") setMinMileage("");
+      if (name === "maxMileage") setMaxMileage("");
     }
-    if (name === "minMileage") setMinMileage(formattedValue);
-    if (name === "maxMileage") setMaxMileage(formattedValue);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ brand, price, minMileage, maxMileage });
+    setPage(1);
+    setFilterParams({ brand: brand.value, price: price.value, minMileage, maxMileage });
   };
 
   const selectStyles = {
@@ -237,9 +242,9 @@ export const FilterBar = () => {
                 paddingLeft: "75px",
                 paddingRight: "10px",
               }}
-              value={minMileage}
+              value={minMileage.toLocaleString("en-US")}
               onChange={(e) => handleMileageChange(e)}
-              type="string"
+              type="text"
               name="minMileage"
               min="0"
             />
@@ -255,9 +260,9 @@ export const FilterBar = () => {
                 paddingLeft: "50px",
                 paddingRight: "10px",
               }}
-              value={maxMileage}
+              value={maxMileage.toLocaleString("en-US")}
               onChange={(e) => handleMileageChange(e)}
-              type="string"
+              type="text"
               name="maxMileage"
               min="0"
             />

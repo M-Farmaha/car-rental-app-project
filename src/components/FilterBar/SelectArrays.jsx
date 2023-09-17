@@ -1,4 +1,5 @@
 export const BrandSelectArray = [
+  "All",
   "Buick",
   "Volvo",
   "HUMMER",

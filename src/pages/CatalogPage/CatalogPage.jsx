@@ -9,10 +9,21 @@ import {
 } from "./CatalogPage-styles";
 import { GetAll, GetAllFavoritesId } from "../../ApiRequest";
 
+const LIMIT = 8;
+
 export const CatalogPage = () => {
-  const [carsArray, setCarsArray] = useState([]);
+  const [totalCarsArray, setTotalCarsArray] = useState([]);
+  const [filteredCarsArray, setFilteredCarsArray] = useState([]);
+  const [paginationArray, setPaginationArray] = useState([]);
+
   const [page, setPage] = useState(1);
   const [favoriesIdArray, setFavoriesIdArray] = useState([]);
+  const [filterParams, setFilterParams] = useState({
+    brand: null,
+    price: null,
+    minMileage: null,
+    maxMileage: null,
+  });
 
   useEffect(() => {
     (async () => {
@@ -20,7 +31,7 @@ export const CatalogPage = () => {
         const response = await GetAllFavoritesId();
         if (response) setFavoriesIdArray(response.data);
       } catch (error) {
-        console.error("Помилка отримання обраних об'єктів:", error);
+        console.log(error);
       }
     })();
   }, []);
@@ -28,24 +39,70 @@ export const CatalogPage = () => {
   useEffect(() => {
     (async () => {
       try {
-        const response = await GetAll(page);
-      if (response) {
-        if (page === 1) setCarsArray(response.data);
-        if (page > 1) setCarsArray((prev) => [...prev, ...response.data]);
-      }
+        const response = await GetAll();
+        if (response) {
+          setTotalCarsArray(response.data);
+        }
       } catch (error) {
-        console.error("Помилка отримання всіх об'єктів:", error);
+        console.log(error);
       }
     })();
-  }, [page]);
+  }, []);
 
   useEffect(() => {
-    if (carsArray.length <= 8) return;
+    (async () => {
+      try {
+
+        let filteredArray = [...totalCarsArray];
+        let paginationArray = [];
+
+        if (filteredArray.length && filterParams.brand && filterParams.brand !== "All") {
+          filteredArray = filteredArray.filter(
+            (car) => car.make === filterParams.brand
+          );
+        }
+
+        if (filteredArray.length && filterParams.price) {
+          filteredArray = filteredArray.filter(
+            (car) => car.rentalPrice <= filterParams.price
+          );
+        }
+
+        if (filteredArray.length && filterParams.minMileage) {
+          filteredArray = filteredArray.filter(
+            (car) => car.mileage >= filterParams.minMileage
+          );
+        }
+
+        if (filteredArray.length && filterParams.maxMileage) {
+          filteredArray = filteredArray.filter(
+            (car) => car.mileage <= filterParams.maxMileage
+          );
+        }
+
+        if (filteredArray.length) {
+          paginationArray = filteredArray.filter(
+            (_, index) => index < page * LIMIT
+          );
+        }
+
+        
+        setFilteredCarsArray(filteredArray);
+        setPaginationArray(paginationArray)
+
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, [filterParams, page, totalCarsArray]);
+
+  useEffect(() => {
+    if (paginationArray.length <= 8) return;
     window.scrollBy({
       top: 400,
       behavior: "smooth",
     });
-  }, [carsArray]);
+  }, [paginationArray.length]);
 
   const handleLoadMoreClick = () => {
     setPage((prev) => prev + 1);
@@ -54,12 +111,12 @@ export const CatalogPage = () => {
   return (
     <>
       <Section>
-        <FilterBar />
+        <FilterBar setFilterParams={setFilterParams} setPage={setPage} />
 
-        {carsArray.length > 0 && (
+        {paginationArray.length > 0 && (
           <CarListWrap>
             <CarList sx={{ mb: 12.5 }}>
-              {carsArray.map((car) => {
+              {paginationArray.map((car) => {
                 let mockapiId = null;
                 const favoriteItem = favoriesIdArray.find(
                   (item) => item.id === car.id
@@ -77,11 +134,12 @@ export const CatalogPage = () => {
           </CarListWrap>
         )}
 
-        {carsArray.length > 0 && carsArray.length < 40 && (
-          <LoadMoreButton type="button" onClick={handleLoadMoreClick}>
-            Load more
-          </LoadMoreButton>
-        )}
+        {paginationArray.length > 0 &&
+          paginationArray.length < filteredCarsArray.length && (
+            <LoadMoreButton type="button" onClick={handleLoadMoreClick}>
+              Load more
+            </LoadMoreButton>
+          )}
       </Section>
     </>
   );
