@@ -30,6 +30,5 @@ export const PriceSelectArray = (() => {
   for (let i = 10; i <= max; i += 10) {
     priceArray.push(i);
   }
-
   return priceArray;
 })();
