@@ -4,7 +4,7 @@ const BASE_URL = "https://65019abb736d26322f5c0003.mockapi.io";
 
 export const GetAll = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/catalog`);
+    const response = await axios.get(`${BASE_URL}/adverts`);
     return response;
   } catch (error) {
     console.log(error);

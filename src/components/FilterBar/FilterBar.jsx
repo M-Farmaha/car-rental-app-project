@@ -185,6 +185,7 @@ export const FilterBar = ({ setFilterParams, setPage }) => {
             }),
           }}
           name="brand"
+          inputId="brand"
           value={brand}
           onMenuOpen={() => setIsBrandOpen(true)}
           onMenuClose={() => setIsBrandOpen(false)}
@@ -214,6 +215,7 @@ export const FilterBar = ({ setFilterParams, setPage }) => {
             }),
           }}
           name="price"
+          inputId="price"
           value={price}
           onMenuOpen={() => setIsPriceOpen(true)}
           onMenuClose={() => setIsPriceOpen(false)}
@@ -230,7 +232,7 @@ export const FilterBar = ({ setFilterParams, setPage }) => {
       </InputWrap>
 
       <InputWrap>
-        <Label htmlFor="carMileage">Сar mileage / km</Label>
+        <Label htmlFor="minMileage">Сar mileage / km</Label>
         <InputRangeWrap>
           <div style={{ position: "relative" }}>
             <LabelMileage htmlFor="minMileage">From</LabelMileage>
@@ -246,6 +248,7 @@ export const FilterBar = ({ setFilterParams, setPage }) => {
               onChange={(e) => handleMileageChange(e)}
               type="text"
               name="minMileage"
+              id="minMileage"
               min="0"
             />
           </div>
@@ -264,6 +267,7 @@ export const FilterBar = ({ setFilterParams, setPage }) => {
               onChange={(e) => handleMileageChange(e)}
               type="text"
               name="maxMileage"
+              id="maxMileage"
               min="0"
             />
           </div>
