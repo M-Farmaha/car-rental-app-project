@@ -9,7 +9,7 @@ import App from "./App";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/car-rental-app-project">
       <App />
     </BrowserRouter>
   </React.StrictMode>
