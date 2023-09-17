@@ -44,7 +44,7 @@ export const CarCard = ({ car, mockapiId }) => {
           <CarTitle>
             {make} <span>{model}</span>, {year}
           </CarTitle>
-          <CarPrice>{rentalPrice}</CarPrice>
+          <CarPrice>{`$${rentalPrice}`}</CarPrice>
         </TitleWrap>
 
         <TagsWrap sx={{ mb: 3.5 }}>

@@ -5,6 +5,7 @@ import {
   CarList,
   CarListWrap,
   LoadMoreButton,
+  NotFoundTMessage,
   Section,
 } from "./CatalogPage-styles";
 import { GetAll, GetAllFavoritesId } from "../../ApiRequest";
@@ -52,11 +53,14 @@ export const CatalogPage = () => {
   useEffect(() => {
     (async () => {
       try {
-
         let filteredArray = [...totalCarsArray];
         let paginationArray = [];
 
-        if (filteredArray.length && filterParams.brand && filterParams.brand !== "All") {
+        if (
+          filteredArray.length &&
+          filterParams.brand &&
+          filterParams.brand !== "All"
+        ) {
           filteredArray = filteredArray.filter(
             (car) => car.make === filterParams.brand
           );
@@ -86,15 +90,20 @@ export const CatalogPage = () => {
           );
         }
 
-        
         setFilteredCarsArray(filteredArray);
-        setPaginationArray(paginationArray)
-
+        setPaginationArray(paginationArray);
       } catch (error) {
         console.log(error);
       }
     })();
-  }, [filterParams, page, totalCarsArray]);
+  }, [
+    filterParams.brand,
+    filterParams.maxMileage,
+    filterParams.minMileage,
+    filterParams.price,
+    page,
+    totalCarsArray,
+  ]);
 
   useEffect(() => {
     if (paginationArray.length <= 8) return;
@@ -113,7 +122,7 @@ export const CatalogPage = () => {
       <Section>
         <FilterBar setFilterParams={setFilterParams} setPage={setPage} />
 
-        {paginationArray.length > 0 && (
+        {paginationArray.length > 0 ? (
           <CarListWrap>
             <CarList sx={{ mb: 12.5 }}>
               {paginationArray.map((car) => {
@@ -132,6 +141,10 @@ export const CatalogPage = () => {
               })}
             </CarList>
           </CarListWrap>
+        ) : (
+          <NotFoundTMessage>
+            Any car does not match the search parameters
+          </NotFoundTMessage>
         )}
 
         {paginationArray.length > 0 &&

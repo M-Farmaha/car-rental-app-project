@@ -43,7 +43,7 @@ export const ModalLearnMore = ({ open, onClose, car }) => {
   const conditionsArray = [
     ...rentalConditions.split("\n"),
     `Mileage: ${mileage.toLocaleString("en-US")}`,
-    `Price: ${rentalPrice}`,
+    `Price: ${rentalPrice}$`,
   ];
 
   const conditionsObject = {};

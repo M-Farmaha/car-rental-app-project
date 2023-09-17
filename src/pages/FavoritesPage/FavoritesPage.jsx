@@ -5,6 +5,7 @@ import {
   CarList,
   CarListWrap,
   LoadMoreButton,
+  NotFoundTMessage,
   Section,
 } from "./FavoritesPage-styles";
 import { GetAll, GetAllFavoritesId } from "../../ApiRequest";
@@ -15,12 +16,8 @@ export const FavoritesPage = () => {
   const [totalCarsArray, setTotalCarsArray] = useState([]);
   const [filteredCarsArray, setFilteredCarsArray] = useState([]);
   const [paginationArray, setPaginationArray] = useState([]);
-
   const [page, setPage] = useState(1);
   const [favoriesIdArray, setFavoriesIdArray] = useState([]);
-
-
-  console.log(favoriesIdArray);
   const [filterParams, setFilterParams] = useState({
     brand: null,
     price: null,
@@ -55,9 +52,10 @@ export const FavoritesPage = () => {
   useEffect(() => {
     (async () => {
       try {
-
         let filteredArray = [...totalCarsArray];
         let paginationArray = [];
+
+        if (!favoriesIdArray.length) return;
 
         if (filteredArray.length && favoriesIdArray.length) {
           filteredArray = filteredArray.filter((car) =>
@@ -65,7 +63,11 @@ export const FavoritesPage = () => {
           );
         }
 
-        if (filteredArray.length && filterParams.brand && filterParams.brand !== "All") {
+        if (
+          filteredArray.length &&
+          filterParams.brand &&
+          filterParams.brand !== "All"
+        ) {
           filteredArray = filteredArray.filter(
             (car) => car.make === filterParams.brand
           );
@@ -95,15 +97,21 @@ export const FavoritesPage = () => {
           );
         }
 
-        
         setFilteredCarsArray(filteredArray);
-        setPaginationArray(paginationArray)
-
+        setPaginationArray(paginationArray);
       } catch (error) {
         console.log(error);
       }
     })();
-  }, [favoriesIdArray, filterParams.brand, filterParams.maxMileage, filterParams.minMileage, filterParams.price, page, totalCarsArray]);
+  }, [
+    favoriesIdArray,
+    filterParams.brand,
+    filterParams.maxMileage,
+    filterParams.minMileage,
+    filterParams.price,
+    page,
+    totalCarsArray,
+  ]);
 
   useEffect(() => {
     if (paginationArray.length <= 8) return;
@@ -122,7 +130,7 @@ export const FavoritesPage = () => {
       <Section>
         <FilterBar setFilterParams={setFilterParams} setPage={setPage} />
 
-        {paginationArray.length > 0 && (
+        {paginationArray.length > 0 ? (
           <CarListWrap>
             <CarList sx={{ mb: 12.5 }}>
               {paginationArray.map((car) => {
@@ -141,6 +149,11 @@ export const FavoritesPage = () => {
               })}
             </CarList>
           </CarListWrap>
+        ) : (
+          <NotFoundTMessage>
+            There are no favorite cars yet or they do not match the search
+            parameters
+          </NotFoundTMessage>
         )}
 
         {paginationArray.length > 0 &&

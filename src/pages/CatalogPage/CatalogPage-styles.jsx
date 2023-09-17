@@ -49,3 +49,13 @@ export const LoadMoreButton = styled("button")({
     color: "var(--accent-hover-color)",
   },
 });
+
+export const NotFoundTMessage = styled("p")({
+  color: "var(--accent-color)",
+  fontFamily: "Manrope",
+  fontSize: "22px",
+  fontStyle: "normal",
+  fontWeight: 600,
+  lineHeight: "18px",
+  textAlign: "center",
+});
