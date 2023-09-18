@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export const Header = styled("header")({
   height: "80px",
-  position: 'fixed',
+  position: "fixed",
   top: 0,
   left: 0,
   right: 0,
@@ -12,7 +12,6 @@ export const Header = styled("header")({
   backdropFilter: "blur(10px)",
   boxShadow: "rgba(0, 0, 0, 0.05) 0px 2px 15px 0px",
   transition: "var(--main-transition)",
-  
 });
 
 export const NavWrap = styled("nav")({

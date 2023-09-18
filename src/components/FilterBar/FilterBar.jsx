@@ -41,7 +41,12 @@ export const FilterBar = ({ setFilterParams, setPage }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setPage(1);
-    setFilterParams({ brand: brand.value, price: price.value, minMileage, maxMileage });
+    setFilterParams({
+      brand: brand.value,
+      price: price.value,
+      minMileage,
+      maxMileage,
+    });
   };
 
   const selectStyles = {

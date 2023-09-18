@@ -24,7 +24,6 @@ export const AddToFavorites = async (id) => {
   try {
     const response = await axios.post(`${BASE_URL}/favorites`, {
       id,
-      mockapiId: 9002,
     });
     return response;
   } catch (error) {

@@ -1,5 +1,3 @@
-// import { ThemeSwitcher } from "./ThemeSwitcher/ThemeSwitcher";
-
 import {
   NavItem,
   NavLinkStyled,
@@ -15,7 +13,6 @@ export const AppBar = () => {
       <Header>
         <NavWrap>
           <Logo>Car Rental</Logo>
-          {/* <ThemeSwitcher /> */}
           <NavList>
             <NavItem>
               <NavLinkStyled to="/catalog">Catalog</NavLinkStyled>
