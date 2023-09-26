@@ -8,11 +8,11 @@ export const Form = styled("form")({
   paddingLeft: "8px",
   paddingRight: "8px",
 
-  width: "1200px",
-  height: "74px",
+  maxWidth: "1200px",
 
   display: "flex",
   flexDirection: "row",
+  flexWrap: "wrap",
   justifyContent: "center",
   alignItems: "flex-end",
   gap: "18px",
@@ -32,7 +32,8 @@ export const InputRangeWrap = styled("div")({
 
 export const Input = styled("input")({
   height: "48px",
-  width: "160px",
+  width: "100%",
+  maxWidth: "160px",
 
   paddingTop: "10px",
   paddingBottom: "10px",
@@ -60,7 +61,6 @@ export const Label = styled("label")({
 
 export const LabelMileage = styled("label")({
   position: "absolute",
-  zIndex: "999",
   left: "24px",
   top: "14px",
   fontFamily: "Manrope",

@@ -20,12 +20,12 @@ export const NavWrap = styled("nav")({
   paddingLeft: "8px",
   paddingRight: "8px",
 
-  width: "1200px",
+  maxWidth: "1200px",
   height: "100%",
 
   display: "flex",
   justifyContent: "space-between",
-  alignItems: "center",
+  alignItems: "baseline",
   gap: "20px",
 });
 

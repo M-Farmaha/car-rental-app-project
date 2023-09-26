@@ -4,37 +4,37 @@ import BackgroundImage from "./background.jpg";
 import { Link } from "react-router-dom";
 
 export const Background = styled(Paper)({
-  backgroundImage: `url(${BackgroundImage})`,
+  color: "var(--primary-black-color)",
+  backgroundColor: "var(--primary-black-color)",
+  backgroundImage: `linear-gradient(rgba(11, 19, 95, 0.4), rgba(0, 0, 0, 0.7)), url(${BackgroundImage})`,
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
   minHeight: "100vh",
-  color: "var(--primary-black-color)",
-  backgroundColor: "var(--primary-white-color)",
+
   paddingTop: "200px",
 });
 
-export const ContentSection = styled("div")({
+export const Section = styled("div")({
   marginLeft: "auto",
   marginRight: "auto",
   paddingLeft: "8px",
   paddingRight: "8px",
-  width: "1200px",
-  height: "100%",
-
-  color: "var(--primary-black-color)",
+  maxWidth: "1200px",
 });
 
 export const ContentWrap = styled("div")({
-  width: "400px",
+  maxWidth: "400px",
+  minWidth: "300xp",
   display: "flex",
   flexDirection: "column",
-  gap: "20px",
+  gap: "30px",
+  marginLeft: "20px",
 });
 
 export const Title = styled("h1")({
   fontFamily: "Manrope",
-  fontSize: "46px",
+  fontSize: "44px",
   fontStyle: "normal",
   fontWeight: 500,
   color: "var(--primary-white-color)",
@@ -47,10 +47,11 @@ export const Title = styled("h1")({
 
 export const SubTitle = styled("p")({
   fontFamily: "Manrope",
-  fontSize: "22px",
+  fontSize: "20px",
   fontStyle: "normal",
   fontWeight: 400,
   color: "var(--primary-white-color)",
+  lineHeight: "28px",
 });
 
 export const ButtonLink = styled(Link)({

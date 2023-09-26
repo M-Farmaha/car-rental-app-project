@@ -8,7 +8,7 @@ export const Section = styled("section")({
 export const CarListWrap = styled("div")({
   marginLeft: "auto",
   marginRight: "auto",
-  width: "1200px",
+  maxWidth: "1200px",
   paddingLeft: "8px",
   paddingRight: "8px",
 });
@@ -17,7 +17,7 @@ export const CarList = styled("ul")({
   display: "flex",
   flexDirection: "row",
   flexWrap: "wrap",
-
+  justifyContent: "center",
   alignItems: "center",
   columnGap: "29px",
   rowGap: "50px ",
@@ -56,6 +56,7 @@ export const NotFoundTMessage = styled("p")({
   fontSize: "22px",
   fontStyle: "normal",
   fontWeight: 600,
-  lineHeight: "18px",
+  lineHeight: "28px",
   textAlign: "center",
+  padding: "10px",
 });

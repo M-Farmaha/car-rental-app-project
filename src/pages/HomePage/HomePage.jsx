@@ -1,8 +1,8 @@
 import {
   Background,
   ButtonLink,
-  ContentSection,
   ContentWrap,
+  Section,
   SubTitle,
   Title,
 } from "./HomePage-styled";
@@ -11,7 +11,7 @@ export const HomePage = () => {
   return (
     <>
       <Background>
-        <ContentSection>
+        <Section>
           <ContentWrap>
             <Title>
               Let's <span>Go!</span>
@@ -27,7 +27,7 @@ export const HomePage = () => {
 
             <ButtonLink to="/catalog">Get started</ButtonLink>
           </ContentWrap>
-        </ContentSection>
+        </Section>
       </Background>
     </>
   );
