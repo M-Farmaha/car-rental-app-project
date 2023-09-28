@@ -17,8 +17,8 @@ export const Header = styled("header")({
 export const NavWrap = styled("nav")({
   marginLeft: "auto",
   marginRight: "auto",
-  paddingLeft: "8px",
-  paddingRight: "8px",
+  paddingLeft: "16px",
+  paddingRight: "16px",
 
   maxWidth: "1200px",
   height: "100%",
@@ -43,7 +43,7 @@ export const NavItem = styled("li")({
 
 export const NavLinkStyled = styled(NavLink)({
   fontFamily: "Manrope",
-  fontSize: "20px",
+  fontSize: "18px",
   fontStyle: "normal",
   fontWeight: 500,
   lineHeight: "24px",
@@ -69,7 +69,7 @@ export const Logo = styled("h1")({
   minWidth: "120px",
 
   fontFamily: "Manrope",
-  fontSize: "24px",
+  fontSize: "20px",
   fontStyle: "normal",
   fontWeight: 600,
   lineHeight: "24px",

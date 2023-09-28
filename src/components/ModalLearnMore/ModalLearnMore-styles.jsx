@@ -8,10 +8,18 @@ export const ModalWrap = styled("div")({
   backgroundColor: "var(--primary-white-color)",
   borderRadius: "24px",
   padding: "40px",
-  width: "540px",
+
+  overflow: "hidden",
+
+  maxWidth: "540px",
+  width: "90vw",
+  minWidth: "300px",
 
   maxHeight: "90vh",
-  overflowY: "scroll",
+  minHeight: "500px",
+
+  display: "flex",
+  flexDirection: "column",
 });
 
 export const ButtonClose = styled("button")({
@@ -31,8 +39,7 @@ export const ButtonClose = styled("button")({
   transition: "var(--main-transition)",
 
   "&:hover": {
-    color: "var(--accent-hover-color)",
-    transform: "scale(1.2)",
+    color: "var(--accent-color)",
   },
 });
 
@@ -46,6 +53,7 @@ export const ImageWrap = styled("div")({
   position: "relative",
   overflow: "hidden",
   width: "100%",
+  minHeight: "248px",
   height: "248px",
   borderRadius: "14px",
   background:
@@ -67,7 +75,6 @@ export const CarTitle = styled("p")({
   lineHeight: "24px",
 
   whiteSpace: "nowrap",
-  overflow: "hidden",
   textOverflow: "ellipsis",
 
   "& span": {

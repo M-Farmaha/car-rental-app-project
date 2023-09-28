@@ -77,15 +77,21 @@ export const ModalLearnMore = ({ open, onClose, car }) => {
           </CloseIcon>
         </ButtonClose>
 
-        <Box>
-          <ImageWrap sx={{ mb: 1.75 }}>
-            <img src={img} alt={make} />
-          </ImageWrap>
+        <ImageWrap sx={{ mb: 1.75 }}>
+          <img src={img} alt={make} />
+        </ImageWrap>
 
-          <CarTitle sx={{ mb: 1.75 }}>
-            {make} <span>{model}</span>, {year}
-          </CarTitle>
+        <CarTitle sx={{ mb: 1.75 }}>
+          {make} <span>{model}</span>, {year}
+        </CarTitle>
 
+        <Box
+          sx={{
+            mb: 3,
+            overflowY: "scroll",
+            flexGrow: 1,
+          }}
+        >
           <TagsWrap sx={{ mb: 1.75 }}>
             <TagsText>
               {city}
@@ -124,7 +130,7 @@ export const ModalLearnMore = ({ open, onClose, car }) => {
 
           <SubTitle sx={{ mb: 1 }}>Rental Conditions:</SubTitle>
 
-          <ConditionsList sx={{ mb: 3 }}>
+          <ConditionsList>
             {conditionsEntries.map((el, index) => (
               <ConditionItem key={index}>
                 {el[0] === el[1] ? (
@@ -137,9 +143,9 @@ export const ModalLearnMore = ({ open, onClose, car }) => {
               </ConditionItem>
             ))}
           </ConditionsList>
-
-          <PhoneNumberLink href="tel:+380730000000">Rental car</PhoneNumberLink>
         </Box>
+
+        <PhoneNumberLink href="tel:+380730000000">Rental car</PhoneNumberLink>
       </ModalWrap>
     </Modal>
   );
