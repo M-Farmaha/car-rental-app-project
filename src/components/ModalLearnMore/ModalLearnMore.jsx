@@ -17,8 +17,20 @@ import {
   PhoneNumberLink,
 } from "./ModalLearnMore-styles";
 import sprite from "../../sprite.svg";
+import { useEffect } from "react";
 
 export const ModalLearnMore = ({ open, onClose, car }) => {
+
+  useEffect(() => {
+    const nav = document.querySelector("nav");
+    
+    if (open) {
+      nav.style.marginRight = "8px";
+    } else {
+      nav.style.marginRight = "0px";
+    }
+  }, [open]);
+
   const {
     id,
     make,

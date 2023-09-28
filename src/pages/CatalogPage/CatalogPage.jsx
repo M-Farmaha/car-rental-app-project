@@ -3,14 +3,13 @@ import { FilterBar } from "../../components/FilterBar/FilterBar";
 import { CarCard } from "../../components/CarCard/CarCard";
 import {
   CarList,
-  CarListWrap,
   LoadMoreButton,
   NotFoundTMessage,
   Section,
 } from "./CatalogPage-styles";
 import { GetAll, GetAllFavoritesId } from "../../ApiRequest";
 
-const LIMIT = 8;
+const LIMIT = 12;
 
 export const CatalogPage = () => {
   const [totalCarsArray, setTotalCarsArray] = useState([]);
@@ -106,7 +105,7 @@ export const CatalogPage = () => {
   ]);
 
   useEffect(() => {
-    if (paginationArray.length <= 8) return;
+    if (paginationArray.length <= LIMIT) return;
     window.scrollBy({
       top: 400,
       behavior: "smooth",
@@ -123,7 +122,7 @@ export const CatalogPage = () => {
         <FilterBar setFilterParams={setFilterParams} setPage={setPage} />
 
         {paginationArray.length > 0 ? (
-          <CarListWrap>
+
             <CarList sx={{ mb: 12.5 }}>
               {paginationArray.map((car) => {
                 let mockapiId = null;
@@ -140,7 +139,7 @@ export const CatalogPage = () => {
                 );
               })}
             </CarList>
-          </CarListWrap>
+   
         ) : (
           <NotFoundTMessage>
             Any car does not match the search parameters

@@ -2,14 +2,7 @@ import { styled } from "@mui/material/styles";
 
 export const Form = styled("form")({
   marginBottom: "50px",
-
-  marginLeft: "auto",
-  marginRight: "auto",
-  paddingLeft: "8px",
-  paddingRight: "8px",
-
   maxWidth: "1200px",
-
   display: "flex",
   flexDirection: "row",
   flexWrap: "wrap",

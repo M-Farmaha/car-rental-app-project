@@ -3,14 +3,13 @@ import { FilterBar } from "../../components/FilterBar/FilterBar";
 import { CarCard } from "../../components/CarCard/CarCard";
 import {
   CarList,
-  CarListWrap,
   LoadMoreButton,
   NotFoundTMessage,
   Section,
 } from "./FavoritesPage-styles";
 import { GetAll, GetAllFavoritesId } from "../../ApiRequest";
 
-const LIMIT = 8;
+const LIMIT = 12;
 
 export const FavoritesPage = () => {
   const [totalCarsArray, setTotalCarsArray] = useState([]);
@@ -114,7 +113,7 @@ export const FavoritesPage = () => {
   ]);
 
   useEffect(() => {
-    if (paginationArray.length <= 8) return;
+    if (paginationArray.length <= LIMIT) return;
     window.scrollBy({
       top: 400,
       behavior: "smooth",
@@ -131,24 +130,22 @@ export const FavoritesPage = () => {
         <FilterBar setFilterParams={setFilterParams} setPage={setPage} />
 
         {paginationArray.length > 0 ? (
-          <CarListWrap>
-            <CarList sx={{ mb: 12.5 }}>
-              {paginationArray.map((car) => {
-                let mockapiId = null;
-                const favoriteItem = favoriesIdArray.find(
-                  (item) => item.id === car.id
-                );
-                if (favoriteItem) {
-                  mockapiId = favoriteItem.mockapiId;
-                }
-                return (
-                  <li key={car.id}>
-                    <CarCard car={car} mockapiId={mockapiId} />
-                  </li>
-                );
-              })}
-            </CarList>
-          </CarListWrap>
+          <CarList sx={{ mb: 12.5 }}>
+            {paginationArray.map((car) => {
+              let mockapiId = null;
+              const favoriteItem = favoriesIdArray.find(
+                (item) => item.id === car.id
+              );
+              if (favoriteItem) {
+                mockapiId = favoriteItem.mockapiId;
+              }
+              return (
+                <li key={car.id}>
+                  <CarCard car={car} mockapiId={mockapiId} />
+                </li>
+              );
+            })}
+          </CarList>
         ) : (
           <NotFoundTMessage>
             There are no favorite cars yet or they do not match the search

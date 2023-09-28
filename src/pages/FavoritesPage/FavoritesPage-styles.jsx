@@ -3,24 +3,27 @@ import { styled } from "@mui/material/styles";
 export const Section = styled("section")({
   paddingTop: "150px",
   paddingBottom: "150px",
-});
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
 
-export const CarListWrap = styled("div")({
-  marginLeft: "auto",
-  marginRight: "auto",
-  maxWidth: "1200px",
+  minWidth: "100px",
   paddingLeft: "8px",
   paddingRight: "8px",
 });
 
+
+
 export const CarList = styled("ul")({
+  paddingLeft: "8px",
+  paddingRight: "8px",
   display: "flex",
-  flexDirection: "row",
+  maxWidth: "1200px",
   flexWrap: "wrap",
   justifyContent: "center",
   alignItems: "center",
   columnGap: "29px",
-  rowGap: "50px ",
+  rowGap: "50px",
 });
 
 export const LoadMoreButton = styled("button")({

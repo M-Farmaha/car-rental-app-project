@@ -12,15 +12,17 @@ export const Header = styled("header")({
   backdropFilter: "blur(10px)",
   boxShadow: "rgba(0, 0, 0, 0.05) 0px 2px 15px 0px",
   transition: "var(--main-transition)",
+  display: "flex",
+  justifyContent: "center",
 });
 
 export const NavWrap = styled("nav")({
-  marginLeft: "auto",
-  marginRight: "auto",
   paddingLeft: "16px",
   paddingRight: "16px",
 
   maxWidth: "1200px",
+  width: "1200px",
+  minWidth: "100px",
   height: "100%",
 
   display: "flex",
