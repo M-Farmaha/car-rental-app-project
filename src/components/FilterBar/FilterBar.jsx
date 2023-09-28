@@ -162,7 +162,7 @@ export const FilterBar = ({ setFilterParams, setPage }) => {
         backgroundClip: "padding-box",
       },
       "::-webkit-scrollbar-thumb:hover": {
-        background: "rgba(18, 20, 23, 0.2);",
+        background: "var(--accent-color)",
         borderRadius: "9999px",
         border: "8px solid rgba(0, 0, 0, 0)",
         backgroundClip: "padding-box",

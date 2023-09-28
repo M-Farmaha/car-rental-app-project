@@ -1,0 +1,13 @@
+https://65019abb736d26322f5c0003.mockapi.io/adverts
+
+###
+
+https://65019abb736d26322f5c0003.mockapi.io/favorites
+
+###
+
+POST https://65019abb736d26322f5c0003.mockapi.io/favorites
+
+###
+
+DELETE https://65019abb736d26322f5c0003.mockapi.io/favorites
