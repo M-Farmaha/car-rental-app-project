@@ -25,6 +25,20 @@ export const FavoritesPage = () => {
   });
 
   useEffect(() => {
+    const section = document.querySelector("section");
+    const nav = document.querySelector("nav");
+
+    if (document.body.clientHeight > window.innerHeight) {
+      section.style.marginRight = "0px";
+      nav.style.marginRight = "0px";
+    } else {
+      section.style.marginRight = "8px";
+      nav.style.marginRight = "8px";
+    }
+  }, [paginationArray]);
+
+
+  useEffect(() => {
     (async () => {
       try {
         const response = await GetAllFavoritesId();

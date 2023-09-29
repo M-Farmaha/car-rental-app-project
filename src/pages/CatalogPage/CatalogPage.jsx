@@ -26,6 +26,19 @@ export const CatalogPage = () => {
   });
 
   useEffect(() => {
+    const section = document.querySelector("section");
+    const nav = document.querySelector("nav");
+
+    if (document.body.clientHeight > window.innerHeight) {
+      section.style.marginRight = "0px";
+      nav.style.marginRight = "0px";
+    } else {
+      section.style.marginRight = "8px";
+      nav.style.marginRight = "8px";
+    }
+  }, [paginationArray]);
+
+  useEffect(() => {
     (async () => {
       try {
         const response = await GetAllFavoritesId();
@@ -122,24 +135,22 @@ export const CatalogPage = () => {
         <FilterBar setFilterParams={setFilterParams} setPage={setPage} />
 
         {paginationArray.length > 0 ? (
-
-            <CarList sx={{ mb: 12.5 }}>
-              {paginationArray.map((car) => {
-                let mockapiId = null;
-                const favoriteItem = favoriesIdArray.find(
-                  (item) => item.id === car.id
-                );
-                if (favoriteItem) {
-                  mockapiId = favoriteItem.mockapiId;
-                }
-                return (
-                  <li key={car.id}>
-                    <CarCard car={car} mockapiId={mockapiId} />
-                  </li>
-                );
-              })}
-            </CarList>
-   
+          <CarList sx={{ mb: 12.5 }}>
+            {paginationArray.map((car) => {
+              let mockapiId = null;
+              const favoriteItem = favoriesIdArray.find(
+                (item) => item.id === car.id
+              );
+              if (favoriteItem) {
+                mockapiId = favoriteItem.mockapiId;
+              }
+              return (
+                <li key={car.id}>
+                  <CarCard car={car} mockapiId={mockapiId} />
+                </li>
+              );
+            })}
+          </CarList>
         ) : (
           <NotFoundTMessage>
             Any car does not match the search parameters
