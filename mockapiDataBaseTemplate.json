@@ -33,7 +33,7 @@
     "make": "Volvo",
     "model": "XC90",
     "type": "SUV",
-    "img": "https://img.automoto.ua/overview/volvo-xc90-2019-420-huge-1313.jpg",
+    "img": "https://raw.githubusercontent.com/M-Farmaha/car-rental-app-project/main/assets/volvo-xc90.jpg",
     "description": "The Volvo XC90 is a premium SUV that offers exceptional safety, advanced technology, and elegant design.",
     "fuelConsumption": "8.3",
     "engineSize": "2.0L 4-cylinder",
