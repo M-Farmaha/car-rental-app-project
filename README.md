@@ -1,8 +1,22 @@
 # Сar Rental App
 
-![Сar Rental Logo](./public/logo192.png)
+Welcome to the Сar Rental Application repository!
 
-Welcome to the Сar Rental Application repository! This app provides a convenient platform for renting cars in Ukraine. With a user-friendly interface and a wide range of vehicle options, it's easier than ever to find the perfect ride for your journey.
+This app provides a convenient platform for renting cars in Ukraine. With a user-friendly interface and a wide range of vehicle options, it's easier than ever to find the perfect ride for your journey.
+
+## Review
+
+- Home page
+![Home page](./assets/HomePage.jpg)
+
+- Catalog page
+![Catalog page](./assets/CatalogPage.jpg)
+
+- Favorites page
+![Favorites page](./assets/FavoritesPage.jpg)
+
+- Modal window
+![Modal window](./assets/ModalWindow.jpg)
 
 ## Features
 
@@ -14,49 +28,35 @@ Welcome to the Сar Rental Application repository! This app provides a convenien
 
 - **Transparent Booking:** Our straightforward booking process ensures a hassle-free reservation experience with no hidden fees.
 
-## Getting Started
+## This is a repository that uses the following technologies: ##
 
-Follow these steps to get started with the Сar Rental App:
+#### Frontend:
 
-1. **Clone the Repository:**
+- **react**
+- **react router dom**
+- **styled components**
+- **responsive markup**
 
-git clone https://github.com/M-Farmaha/car-rental-app-project
+#### Backend:
 
-2. **Install Dependencies:**
+- **mockapi.io**
 
-cd car-rental-app
-npm install
+## How to Contribute
 
-3. **Run the App:**
+If you wish to make your own fixes or improvements, you should:
 
-npm start
+1. Clone the repository to your computer.
+2. Make changes and additions to the source code.
+3. Test to ensure everything works correctly.
+4. Submit a pull request with your changes.
 
-4. **Open the App:**
+## Author
 
-Visit http://localhost:3000 in your web browser.
-
-## Usage
-
-- Explore our catalog of vehicles.
-- Filter and compare different car options.
-- Save your favorite cars.
-- Make a reservation and hit the road!
-
-## Contributing
-
-We welcome contributions from the community. If you have suggestions or find any issues, please feel free to open a new issue or submit a pull request.
+The "Сar Rental App" is developed by M-Farmaha in 2023.
 
 ## License
 
-This project is in public access.
-
-## Acknowledgments
-
-This project was developed by Max Farmaha in 2023.
-
-Special thanks to GOIT community for their dedication and hard work.
-
-Happy travels with Сar Rental!
+This project is distributed under the MIT License.
 
 ## Recommended Browser
 
